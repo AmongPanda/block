@@ -13,7 +13,7 @@ public class ScorePlus : MonoBehaviour
     
     private void Start()
     {
-        _scoreTop = PlayerPrefs.GetInt("TopScore", _scoreTop);
+        _scoreTop = PlayerPrefs.GetInt("TopScore0", _scoreTop);
         
     }
 
@@ -22,15 +22,19 @@ public class ScorePlus : MonoBehaviour
     {
         if(_activeScore == true)
         {
-            
-            _scoreText.text = "Очков: " + _score.ToString();
-            _scoreTopText.text = "Рекорд: " +_scoreTop.ToString();
             _score += 2;
+            if(_score == 2)
+            {
+                _score += 0;
+            }
             if(_score >= _scoreTop)
             {
                 _scoreTop = _score;
-                PlayerPrefs.SetInt("TopScore", _scoreTop);
+                PlayerPrefs.SetInt("TopScore0", _scoreTop);
             }
+            _scoreText.text = "Очков: " + _score.ToString();
+            _scoreTopText.text = "Рекорд: " +_scoreTop.ToString();
+            
             
             
         }

@@ -8,7 +8,7 @@ public class Drag : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb;
     void OnMouseDown()
     { 
-        offset = gameObject.transform.position -
+        offset = transform.position -
         Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, 10.0f));
     }
 
